@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Extra Category</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            /* Dark background color */
+        }
+
+        .bg-dark-gray {
+            background-color: #1f2937;
+            /* Darker background color */
+        }
+
+        .text-light-gray {
+            color: #f9fafb;
+            /* Light text color */
+        }
+
+        .text-medium-gray {
+            color: #d1d5db;
+            /* Slightly lighter text color */
+        }
+
+        .bg-dark-input {
+            background-color: #111827;
+            /* Dark background for input */
+        }
+
+        .border-medium-gray {
+            border-color: #4b5563;
+            /* Dark border color */
+        }
+
+        .btn-custom-hover:hover {
+            background-color: #2563eb;
+            /* Darker blue on hover */
+        }
+
+        .focus-shadow-outline:focus {
+            box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.5);
+            /* Focus shadow */
+        }
+    </style>
+</head>
+
+<body class="d-flex h-100 align-items-start justify-content-center pt-5">
+    <div class="bg-dark-gray shadow rounded-lg p-4 w-100" style="max-width: 20rem;">
+        <h2 class="text-light-gray font-weight-bold mb-4">Add Extra Category</h2>
+        <form action="/extra/addextracategory" method="post">
+            <div class="form-group">
+                <label for="extraCategoryName" class="text-medium-gray font-weight-semibold">Extra Category Name</label>
+                <input type="text" id="extraCategoryName" name="extracat_name"
+                    class="form-control bg-dark-input border-medium-gray text-light-gray" placeholder="Enter extra category name" required>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary btn-custom-hover text-white font-weight-bold">Add Extra Category</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

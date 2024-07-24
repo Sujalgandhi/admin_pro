@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-shape {
+            background-color: #2d3748;
+            /* Dark background color */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
+        }
+
+        .input-field {
+            background: #4a5568;
+            /* Darker background for inputs */
+            border-radius: 5px;
+            padding-left: 1rem;
+        }
+
+        .container {
+            max-width: 400px;
+            /* Adjusted max-width */
+            margin: 0 auto;
+            padding: 2rem;
+            /* Padding for spacing inside the container */
+        }
+
+        .hover-underline:hover {
+            text-decoration: underline;
+        }
+
+        .hover-bg-orange:hover {
+            background-color: #FF8C42;
+        }
+
+        .focus-ring-pink-600:focus {
+            box-shadow: 0 0 0 0.2rem rgba(248, 113, 113, 0.5);
+            /* Custom ring color */
+        }
+
+        .button {
+            background-color: #e53e3e;
+            /* Red button color */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #c53030;
+            /* Darker red on hover */
+        }
+    </style>
+</head>
+
+<body class="bg-dark d-flex align-items-center justify-content-center min-vh-100">
+    <div class="container custom-shape text-light">
+        <h2 class="text-center mb-4">Sign Up</h2>
+        <form action="/signup" method="post">
+            <div class="form-group">
+                <input type="text" id="username" name="username"
+                    class="form-control bg-dark text-light border border-secondary input-field"
+                    placeholder="Enter your Username" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email"
+                    class="form-control bg-dark text-light border border-secondary input-field"
+                    placeholder="Enter your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password"
+                    class="form-control bg-dark text-light border border-secondary input-field"
+                    placeholder="Enter your Password" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="phone" name="phone"
+                    class="form-control bg-dark text-light border border-secondary input-field"
+                    placeholder="Enter your Phone" required>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block button">Sign Up</button>
+        </form>
+        <p class="mt-3 text-center">Already have an account? <a href="/login"
+                class="text-warning hover-underline">Login here</a></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

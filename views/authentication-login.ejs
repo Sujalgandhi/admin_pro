@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-shape {
+            background-color: #2d3748;
+            /* Slightly lighter dark background */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow for depth */
+        }
+
+        .input-field {
+            background: #4a5568;
+            /* Darker background for inputs */
+            border-radius: 5px;
+            padding-left: 1rem;
+        }
+
+        .container {
+            max-width: 400px;
+            /* Smaller container for a compact look */
+            margin: 0 auto;
+            padding: 2rem;
+            /* Padding for spacing inside the container */
+        }
+
+        .hover-underline:hover {
+            text-decoration: underline;
+        }
+
+        .hover-bg-orange:hover {
+            background-color: #FF8C42;
+        }
+
+        .focus-ring-pink-600:focus {
+            box-shadow: 0 0 0 0.2rem rgba(248, 113, 113, 0.5);
+            /* Custom ring color */
+        }
+
+        .button {
+            background-color: #434141;
+            /* Red button color */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #fcfcfc;
+            /* Darker red on hover */
+        }
+    </style>
+</head>
+
+<body class="bg-dark d-flex align-items-center justify-content-center min-vh-100">
+    <div class="bg-gray-800 shadow-lg rounded-lg container custom-shape">
+        <h2 class="text-4xl font-weight-bold text-light mb-4 text-center">Login</h2>
+        <form action="/local" method="post">
+            <div class="mb-4">
+                <input type="text" id="username" name="username"
+                    class="form-control bg-gray-900 border border-gray-600 text-light placeholder-gray-400 focus-ring-pink-600 input-field"
+                    placeholder="Enter your Username" required>
+            </div>
+            <div class="mb-4">
+                <input type="password" id="password" name="password"
+                    class="form-control bg-gray-900 border border-gray-600 text-light placeholder-gray-400 focus-ring-pink-600 input-field"
+                    placeholder="Enter your Password" required>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block button">Sign in</button>
+        </form>
+        <p class="text-muted mt-4 text-center"><a href="/resetpassword"
+                class="text-warning transition duration-300 hover-underline">Forgot password?</a></p>
+        <p class="mt-4 text-center text-muted">Don't have an account? <a href="/signup"
+                class="text-warning hover-underline">Sign up here</a></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

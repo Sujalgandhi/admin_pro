@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords"
+    content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template" />
+  <meta name="description"
+    content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Product Admin</title>
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png" />
+  <!-- Custom CSS -->
+  <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="../dist/css/style.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #121212;
+      /* Dark background color */
+      color: #e0e0e0;
+      /* Light text color for readability */
+    }
+
+    .page-wrapper {
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      /* Dark card background */
+      color: #e0e0e0;
+      /* Light text color for card */
+    }
+
+    .card img {
+      height: 400px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .alert-info {
+      background-color: #1f2937;
+      /* Dark alert background */
+      color: #d1d5db;
+      /* Light alert text color */
+      border: 1px solid #4b5563;
+      /* Dark alert border */
+    }
+
+    .btn-primary {
+      background-color: #3b82f6;
+      /* Primary button color */
+      border-color: #2563eb;
+      /* Primary button border color */
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+      /* Hover state */
+    }
+
+    .btn-danger {
+      background-color: #ef4444;
+      /* Danger button color */
+      border-color: #dc2626;
+      /* Danger button border color */
+    }
+
+    .btn-danger:hover {
+      background-color: #dc2626;
+      /* Hover state */
+    }
+
+    .bg-green-200 {
+      background-color: #10b981;
+      /* Success message background */
+      color: #fff;
+      /* Success message text color */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================================================== -->
+  <!-- Preloader - style you can find in spinners.css -->
+  <!-- ============================================================== -->
+  <div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+    data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+
+    <%- include('./partials/header') %>
+
+      <!-- ============================================================== -->
+      <%- include('./partials/aside') %>
+
+
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+
+        <!-- flash message -->
+        <div class="page-wrapper flex-grow-1 p-6">
+          <% if (messages && messages.length> 0) { %>
+            <% messages.forEach(message=> { %>
+              <% if (message==="ProductAdded" ) { %>
+                <div class="alert alert-info">New Product Added Successfully</div>
+                <% } %>
+                  <% if (message==="deleteProduct" ) { %>
+                    <div class="alert alert-info">Deleted Product Successfully</div>
+                    <% } %>
+                      <% if (message==="UpadteProduct" ) { %>
+                        <div class="alert alert-info">Product Updated Successfully</div>
+                        <% } %>
+                          <% }) %>
+                            <% } %>
+
+                              <!-- catagory flash message -->
+                              <% if (messages && messages.length> 0) { %>
+                                <% messages.forEach(message=> { %>
+                                  <% if (message==="CatAdded" ) { %>
+                                    <div class="mt-4 p-2 bg-green-200 text-white rounded">New Category Added
+                                      Successfully</div>
+                                    <% } %>
+                                      <% if (message==="subCatAdded" ) { %>
+                                        <div class="mt-4 p-2 bg-green-200 text-white rounded">New SubCategory Added
+                                          Successfully</div>
+                                        <% } %>
+                                          <% if (message==="extCatAdded" ) { %>
+                                            <div class="alert alert-info">New ExtraCategory Added Successfully</div>
+                                            <% } %>
+                                              <% }) %>
+                                                <% } %>
+
+                                                  <div class="row">
+
+                                                    <div class="col-md-4">
+                                                      <div class="card">
+                                                        <div class="card-body">
+                                                          <img
+                                                            src="data:image/jpeg;base64,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"
+                                                            alt="img" class="img-fluid mb-3">
+                                                          <h4 class="card-title">Phone</h4>
+                                                          <h5 class="card-text">8,999</h5>
+                                                          <p class="card-text">Lorem ipsum, dolor sit amet consectetur
+                                                            adipisicing elit. Temporibus veritatis iure repudiandae
+                                                            dolorum suscipit unde aliquid, similique cum laboriosam,
+                                                            voluptatem minima sequi ipsam eius aliquam sed quisquam
+                                                            accusamus. Corporis, exercitationem?</p>
+                                                          <a href="#" class="btn btn-primary">Edit</a>
+                                                          <a href="#" class="btn btn-danger">Delete</a>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <% ProductData.forEach((product)=> { %>
+                                                      <div class="col-md-4">
+                                                        <div class="card">
+                                                          <div class="card-body">
+                                                            <img src="<%= product.image %>" alt="img"
+                                                              class="img-fluid mb-3">
+                                                            <h4 class="card-title">
+                                                              <%= product.productname %>
+                                                            </h4>
+                                                            <h5 class="card-text">
+                                                              <%= product.productprice %>
+                                                            </h5>
+                                                            <p class="card-text">
+                                                              <%= product.description %>
+                                                            </p>
+                                                            <a href="/product/editProduct/<%= product._id %>"
+                                                              class="btn btn-primary">Edit</a>
+                                                            <a href="/product/delete/<%= product._id %>"
+                                                              class="btn btn-danger">Delete</a>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <% }) %>
+                                                  </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+        <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+        <!--Wave Effects -->
+        <script src="../dist/js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="../dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="../dist/js/custom.min.js"></script>
+        <!--This page JavaScript -->
+        <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
+        <!-- Charts js Files -->
+        <script src="../assets/libs/flot/excanvas.js"></script>
+        <script src="../assets/libs/flot/jquery.flot.js"></script>
+        <script src="../assets/libs/flot/jquery.flot.pie.js"></script>
+        <script src="../assets/libs/flot/jquery.flot.time.js"></script>
+        <script src="../assets/libs/flot/jquery.flot.stack.js"></script>
+        <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
+        <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+        <script src="../dist/js/pages/chart/chart-page-init.js"></script>
+</body>
+
+</html>
